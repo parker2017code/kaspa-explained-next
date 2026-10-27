@@ -1,26 +1,28 @@
-# Kaspa, played live
+# KaspOS · Kaspa explained as a pretend computer
 
-A Kaspa explainer you can play with. The network is drawn as a live musical
-score: about ten blocks a second, each one linked to the blocks it saw. Then
-come a set of toys. You can pile up blocks, try to cheat the ordering
-(GHOSTDAG), race two kinds of coin bookkeeping, price an attack, lock a
-savings jar with covenant rules, play the emission schedule on a keyboard,
-read recent posts from people building it (in plain English) and check what
-is live, on testnet or only on paper.
+A Kaspa explainer you play with instead of read. It looks like a toy desktop
+computer. The wallpaper is the real network, drawn live at about ten blocks a
+second. Every icon is a small toy that explains one idea: block rhythm, trying to
+cheat the ordering and getting caught, a payments race, robbing a rule-locked
+savings jar, the coin supply as a piano, a "real or not?" game about what's
+shipped versus promised, a pub quiz, a jargon dictionary and recent posts from
+builders in plain English. There are hidden stickers and easter eggs too.
 
-Not an official Kaspa site. There's no price talk. Every claim links to its source.
+Not an official Kaspa site. No price talk. Every claim links to its source in
+the Receipts app.
 
 Preview: https://parker2017code.github.io/kaspa-explained-next/ (noindex while it's a preview)
 
 ## How it works
 
-- Static files only: `index.html`, `css/`, `js/`, `data/`, `fonts/` (all fonts are SIL OFL).
-- Live numbers come straight from the browser via `https://api.kaspa.org` (blue
-  score, hashrate, block reward, coin supply, next emission step, sample blocks).
-  When the API can't be reached, the page says so, draws a simulated 10 BPS rhythm and
-  marks the live numbers "offline".
-- `data/x-feed.json` holds the "Overheard" posts. It is refreshed by hand with
-  `scripts/refresh-x.py` (no X API keys; the search runs through a read-only X connector).
+- Static files only, with no build step: `index.html`, `css/os.css`, `js/`, `data/`, `fonts/` (fonts are SIL OFL).
+  - `js/live.js`: live numbers from `https://api.kaspa.org` (blue score, hashrate, reward, supply, next emission step, sample blocks).
+    If the API can't be reached, the page says "simulated" and keeps drawing a 10-blocks-a-second rhythm.
+  - `js/core.js`: shared helpers, stickers, sounds (off until you turn them on), the ticker.
+  - `js/wm.js`: the window manager, start menu, desktop icons, Dag the helper, easter eggs, boot screen.
+  - `js/wall.js`: the live block wallpaper.
+  - `js/apps-a.js`, `js/apps-b.js`: the apps. `js/data.js`: shipped/testnet/proposal items with sources.
+- `data/x-feed.json` holds the "Overheard" posts, refreshed with `scripts/refresh-x.py` (no X API keys).
 
 ## Refreshing the X feed
 
@@ -39,3 +41,5 @@ Allowed tags are listed in `scripts/refresh-x.py`. Posts without a `plain` line 
 ```sh
 python3 -m http.server 8000   # then open http://localhost:8000/
 ```
+
+Add `?noboot` to skip the boot screen, or `#quiz` (any app id) to open an app directly.
