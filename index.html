@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Kaspa, played live: an explainer you can poke</title>
+<meta name="description" content="A hands-on, plain-English tour of Kaspa: watch the real network beat ten times a second, try to cheat it, rob a savings jar it protects, and see what builders said on X this week.">
+<meta property="og:title" content="Kaspa, played live">
+<meta property="og:description" content="Ten blocks a second, and nobody gets thrown out. An explainer you can poke.">
+<meta property="og:image" content="https://parker2017code.github.io/kaspa-explained-next/img/og.png">
+<meta name="theme-color" content="#f3eee3">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/atkinson-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="mast">
+  <a class="brand" href="#top" id="top">Kaspa, <i>played live</i></a>
+  <nav aria-label="Sections">
+    <a href="#pileup">Pile-up</a><a href="#photo">Who was first</a><a href="#cheat">Cheat it</a><a href="#jar">The jar</a><a href="#scale">The scale</a><a href="#overheard">Overheard</a><a href="#real">Real or not</a>
+    <span class="hint"><span class="kbd">/</span> menu</span>
+  </nav>
+</header>
+</div>
+
+<main id="main">
+<div class="wrap">
+<section class="overture" aria-labelledby="h-hero">
+  <p class="tempo">Tempo: <b id="tempo">♩ = 600</b> &nbsp;·&nbsp; that's ten blocks every second</p>
+  <h1 id="h-hero">Ten blocks a second. <em>Nobody</em> gets thrown out.</h1>
+  <p class="lede">Kaspa is a digital money network kept honest by computers all over the world, with no bank in charge. Its trick: it lets lots of new pages of the shared record be written at the same time, and keeps all of them. That's the line below. It's the real network, playing right now.</p>
+  <div class="hero-actions">
+    <button class="btn" id="sound" aria-pressed="false" type="button"><span aria-hidden="true">♪</span> Hear it</button>
+    <a class="btn ghost" href="#pileup">Show me why it matters</a>
+  </div>
+</section>
+</div>
+
+<div class="stage" id="stage">
+  <canvas id="score" role="img" aria-label="A live drawing of Kaspa blocks arriving, about ten per second, each linked to the blocks before it."></canvas>
+</div>
+<div class="wrap">
+  <div class="stage-meta">
+    <span class="live"><span class="dot" id="livedot"></span><span id="livetxt">Connecting to the network…</span></span>
+    <span>Each dot is a block. Lines point at the blocks it builds on. <b>Ringed dots are real blocks you can tap.</b></span>
+  </div>
+  <dl class="readouts" aria-live="off">
+    <div><dt>Blocks added in the last minute <small>(blue)</small></dt><dd class="num" id="r-rate">…</dd></div>
+    <div><dt>Network's running block count <small>(blue score)</small></dt><dd class="num" id="r-score">…</dd></div>
+    <div><dt>Guesses per second by all miners</dt><dd class="num" id="r-hash">…</dd></div>
+    <div><dt>New coins per block, right now</dt><dd class="num" id="r-reward">…</dd></div>
+  </dl>
+  <p class="welcome" id="welcome" hidden></p>
+
+  <nav class="programme" aria-labelledby="h-prog">
+    <h2 id="h-prog">Tonight's programme</h2>
+    <ol>
+      <li><a href="#pileup"><span class="n">01</span><span class="t">The pile-up problem<em>Why fast blockchains throw work in the bin</em></span><span class="k">press 1</span></a></li>
+      <li><a href="#photo"><span class="n">02</span><span class="t">Who was first?<em>Sneak a block in late and see what happens</em></span><span class="k">press 2</span></a></li>
+      <li><a href="#coins"><span class="n">03</span><span class="t">Five friends pay at once<em>Coins, not a running tab</em></span><span class="k">press 3</span></a></li>
+      <li><a href="#cheat"><span class="n">04</span><span class="t">How hard is it to cheat?<em>Live numbers, no maths degree needed</em></span><span class="k">press 4</span></a></li>
+      <li><a href="#jar"><span class="n">05</span><span class="t">Try to rob the savings jar<em>Money that carries its own house rules</em></span><span class="k">press 5</span></a></li>
+      <li><a href="#scale"><span class="n">06</span><span class="t">The money supply plays a scale<em>Literally. It started on concert A.</em></span><span class="k">press 6</span></a></li>
+      <li><a href="#overheard"><span class="n">07</span><span class="t">Overheard on X<em>What builders said this week, translated</em></span><span class="k">press 7</span></a></li>
+      <li><a href="#real"><span class="n">08</span><span class="t">Real, testing, or just talk?<em>The status board, with receipts</em></span><span class="k">press 8</span></a></li>
+      <li><a href="#doubts"><span class="n">09</span><span class="t">Reasons to be skeptical<em>Because a fan site that only cheers is useless</em></span><span class="k">press 9</span></a></li>
+    </ol>
+  </nav>
+
+<!-- 01 -->
+<section class="mv" id="pileup" aria-labelledby="h1">
+  <div class="mv-head"><div><p class="mv-no">No. 01</p><h2 id="h1">The pile-up problem</h2></div><p class="marking">or, why Bitcoin waits ten minutes on purpose</p></div>
+  <div class="mv-body">
+    <div class="prose">
+      <p>A blockchain is a shared notebook. Every so often a computer somewhere wins the right to write the next page (a <b>block</b>) and shouts it to everyone else. Shouting takes time to cross the planet.</p>
+      <p>If two computers write a page at nearly the same moment, an ordinary blockchain can keep only one. The other page goes in the bin, with all the electricity spent making it. Bitcoin avoids the pile-up by writing one page about every ten minutes. Safe, and slow.</p>
+      <p>Kaspa's answer: stop binning. Each new block points back to <i>every</i> recent block its maker has heard of, so pages written at the same moment just sit side by side. The shape that makes is called a block<b>DAG</b>, a family tree where a child can have many parents. Since May 5, 2025 the main network has aimed for ten blocks a second.<a class="fn" href="#n2">2</a></p>
+      <p class="takeaway">Drag the speed up. Watch the chain on top start throwing pages away. The DAG underneath keeps every one.</p>
+    </div>
+    <figure class="panel" id="collide" style="margin:0">
+      <div class="panel-bar"><span>Pile-up simulator</span><span class="tag">simulation, made-up blocks</span></div>
+      <canvas id="collide-cv" height="300" aria-label="Two lanes of blocks. Top: a single chain that discards colliding blocks. Bottom: a DAG that keeps them."></canvas>
+      <div class="panel-ctl">
+        <div class="ctl"><label for="c-rate">Blocks per second</label><input id="c-rate" type="range" min="0" max="100" value="50"><output id="c-rate-o" for="c-rate"></output></div>
+        <div class="ctl"><label for="c-delay">Time for news to spread</label><input id="c-delay" type="range" min="1" max="30" value="5"><output id="c-delay-o" for="c-delay"></output></div>
+        <div class="row" role="group" aria-label="Presets"><button class="chip" data-preset="btc" type="button">Bitcoin's pace</button><button class="chip" data-preset="k1" type="button">Kaspa before 2025</button><button class="chip" data-preset="k10" type="button">Kaspa today</button></div>
+      </div>
+      <dl class="stats">
+        <div><dt>Chain: pages binned</dt><dd class="red" id="c-lost">0%</dd></div>
+        <div><dt>DAG: pages binned</dt><dd class="blue">0%</dd></div>
+        <div><dt>Odds of a clash (maths)</dt><dd id="c-p">…</dd></div>
+      </dl>
+      <p class="note">The clash odds are 1 − e<sup>−rate × delay</sup>, the standard chance that another block turns up while news is still spreading. The binned share above is measured from the animation itself.</p>
+    </figure>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="mv" id="photo" aria-labelledby="h2">
+  <div class="mv-head"><div><p class="mv-no">No. 02</p><h2 id="h2">Who was first?</h2></div><p class="marking">the group photo rule</p></div>
+  <div class="mv-body flip">
+    <figure class="panel" style="margin:0">
+      <div class="panel-bar"><span>GHOSTDAG, running in your browser</span><span class="tag">real algorithm, toy network</span></div>
+      <canvas id="gd-cv" height="320" aria-label="A small blockDAG. Blue blocks are well connected; red blocks were hidden and released late."></canvas>
+      <div class="panel-ctl">
+        <div class="row">
+          <button class="chip" id="gd-play" type="button" aria-pressed="true">Honest miners: on</button>
+          <button class="chip red" id="gd-hide" type="button" aria-pressed="false">Start a secret chain</button>
+          <button class="chip" id="gd-release" type="button" disabled>Release it</button>
+          <button class="chip" id="gd-reset" type="button">Reset</button>
+        </div>
+        <div class="ctl"><label for="gd-k">Tolerance <i>k</i></label><input id="gd-k" type="range" min="0" max="6" value="3"><output id="gd-k-o" for="gd-k">3</output></div>
+        <div class="legend"><span><span class="sw b"></span>blue: in the group photo</span><span><span class="sw r"></span>red: showed up suspiciously late</span><span><span class="sw o"></span>your secret blocks (not public yet)</span></div>
+      </div>
+      <dl class="stats">
+        <div><dt>Blue</dt><dd class="blue" id="gd-blue">0</dd></div>
+        <div><dt>Red</dt><dd class="red" id="gd-red">0</dd></div>
+        <div><dt>Secret</dt><dd id="gd-sec">0</dd></div>
+      </dl>
+      <p class="note" id="gd-msg" aria-live="polite">Honest blocks arrive. Start a secret chain, wait a few seconds, then release it.</p>
+    </figure>
+    <div class="prose">
+      <p>Keeping every block makes a new headache. If two blocks each try to spend the same coin, which one wins? You need everyone to agree on an order.</p>
+      <p>Kaspa uses a rule called <b>GHOSTDAG</b>.<a class="fn" href="#n1">1</a> Think of a group photo. Honest computers publish straight away, so their blocks all see each other and huddle together. They're coloured <b style="color:var(--blue)">blue</b>. A block that was mined in secret and pushed out later didn't see anyone, and nobody saw it. It doesn't fit in the photo, so it's coloured <b style="color:var(--red)">red</b> and goes to the back of the queue. If it clashes with a blue block, it loses.</p>
+      <p>The <i>k</i> slider is how much "we were busy at the same time" the rule forgives. The real network uses k&nbsp;=&nbsp;124, sized for news taking up to 5 seconds to spread.<a class="fn" href="#n3">3</a> This toy uses a small k so you can see it work.</p>
+      <p class="takeaway">Go on, try to cheat. The longer you hide, the redder it gets.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="mv" id="coins" aria-labelledby="h3">
+  <div class="mv-head"><div><p class="mv-no">No. 03</p><h2 id="h3">Five friends pay at once</h2></div><p class="marking">coins, not a running tab</p></div>
+  <div class="mv-body">
+    <div class="prose">
+      <p>There are two ways to keep track of money. A <b>running tab</b>: one balance per person, updated line by line. Or a <b>wallet of coins</b>: each coin is its own object, and a payment says exactly which coins it uses up.</p>
+      <p>Kaspa, like Bitcoin, uses coins (the jargon is "UTXOs"). Because every payment names its coins, a computer can see at a glance that five payments touching five different coins can't interfere, and check them side by side. Two payments grabbing the <i>same</i> coin get caught instantly.</p>
+      <p class="takeaway">Press go. Then press it again with a double-spender in the queue.</p>
+    </div>
+    <figure class="panel" style="margin:0">
+      <div class="panel-bar"><span>Checkout race</span><span class="tag">illustration</span></div>
+      <div class="lanes">
+        <div class="lane"><h3>Running tab</h3><p class="sub">one shared balance, one line at a time</p><div id="tab-list"></div><p class="clock" id="tab-clock">0 steps</p></div>
+        <div class="lane"><h3>Wallet of coins</h3><p class="sub">each payment names its coins</p><div id="coin-list"></div><p class="clock" id="coin-clock">0 steps</p></div>
+      </div>
+      <div class="panel-ctl"><div class="row"><button class="btn sm" id="race" type="button">Go</button><label class="check"><input type="checkbox" id="dbl"> Add a double-spender</label></div></div>
+      <p class="note">Simplified on purpose. Account-style systems have their own tricks for parallel work; the point here is that coins make "who touches what" obvious.</p>
+    </figure>
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="mv" id="cheat" aria-labelledby="h4">
+  <div class="mv-head"><div><p class="mv-no">No. 04</p><h2 id="h4">How hard is it to cheat?</h2></div><p class="marking">priced in effort, not euros</p></div>
+  <div class="mv-body flip">
+    <figure class="panel" style="margin:0">
+      <div class="panel-bar"><span>Cheater's calculator</span><span class="tag" id="att-tag">live hashrate</span></div>
+      <div class="panel-ctl" style="border-top:0">
+        <div class="ctl"><label for="att-q">Your share of all mining</label><input id="att-q" type="range" min="1" max="60" value="20"><output id="att-q-o" for="att-q"></output></div>
+        <div class="ctl"><label for="att-z">Shop waits for</label><input id="att-z" type="range" min="1" max="120" value="10"><output id="att-z-o" for="att-z"></output></div>
+      </div>
+      <canvas id="att-cv" height="220" aria-label="Chart of the chance an attacker catches up, falling as the wait grows."></canvas>
+      <dl class="stats">
+        <div><dt>Chance your fake history wins</dt><dd class="red" id="att-p">…</dd></div>
+        <div><dt>Mining power you'd need</dt><dd id="att-need">…</dd></div>
+      </dl>
+      <p class="note">Uses the catch-up formula from the 2008 Bitcoin paper,<a class="fn" href="#n9">9</a> counting blocks at ten a second. It's a teaching model: it ignores the delays that GHOSTDAG's real security analysis is built around. Past 50%, no amount of waiting saves you. That's true of every proof-of-work network.</p>
+    </figure>
+    <div class="prose">
+      <p>To fake history you'd have to out-build everyone else, and "building" here means guessing. Miners race to find a number that makes a block's fingerprint come out right. There's no shortcut; you just guess, really fast.</p>
+      <p id="guess-fact">Right now all Kaspa miners together make about <b class="num" id="g-hash">…</b> guesses every second. If every person on Earth made one guess per second, it would take them <b class="num" id="g-years">…</b> to match <i>one second</i> of that.</p>
+      <p>A shop that waits a few seconds before handing over the goods makes a cheat very unlikely unless the cheater controls a big slice of all mining. And after 12 hours, nodes treat a block as settled and refuse to rewrite it, no matter who asks.<a class="fn" href="#n4">4</a></p>
+      <p class="takeaway">Slide your share past 50%. That's the cliff every proof-of-work network lives next to.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="mv" id="jar" aria-labelledby="h5">
+  <div class="mv-head"><div><p class="mv-no">No. 05</p><h2 id="h5">Try to rob the savings jar</h2></div><p class="marking">money with house rules, live since June 30, 2026</p></div>
+  <div class="mv-body">
+    <div class="prose">
+      <p>Normally, whoever holds the key can spend the coin. Full stop. Lose your key to a thief and it's gone.</p>
+      <p>Since the <b>Toccata</b> upgrade switched on (June 30, 2026), Kaspa coins can carry <b>covenants</b>: rules about where the money may go next, checked by every computer on the network.<a class="fn" href="#n5">5</a> The rules travel with the coin, like terms printed on a banknote. A language for writing them, SilverScript, reached version 1.0 in September.<a class="fn" href="#n6">6</a></p>
+      <p>Here's a savings jar with three house rules. Spend from it. Then try to rob it.</p>
+      <p class="takeaway">Even with the stolen key, the thief can't take more than pocket money.</p>
+    </div>
+    <figure class="panel" style="margin:0">
+      <div class="panel-bar"><span>The savings jar</span><span class="tag">illustration, not a deployed contract</span></div>
+      <div class="vault">
+        <div>
+          <p class="sub" style="margin:0;font-size:.8rem;color:var(--ink-2)">In the jar</p>
+          <p class="balance num" id="v-bal">1,000 KAS</p>
+          <ol class="rules" id="v-rules">
+            <li>Up to <b>50 KAS</b> per spend can go anywhere.</li>
+            <li>Anything bigger may only go to <b>your savings address</b>.</li>
+            <li>The change must stay in a jar <b>with these same rules</b>.</li>
+          </ol>
+        </div>
+        <div>
+          <div class="row" role="group" aria-label="Try a spend">
+            <button class="chip" data-try="coffee" type="button">☕ Pay a café 4.5</button>
+            <button class="chip" data-try="rent" type="button">Pay rent 900</button>
+            <button class="chip" data-try="save" type="button">Move 900 to savings</button>
+            <button class="chip red" data-try="thief" type="button">🦹 Thief: take it all</button>
+            <button class="chip red" data-try="sneaky" type="button">Sneaky: 40, change to a plain wallet</button>
+          </div>
+          <div class="builder">
+            <div class="ctl"><label for="v-amt">Amount</label><input id="v-amt" type="range" min="1" max="1000" value="25"><output id="v-amt-o" for="v-amt">25</output></div>
+            <label>To <select id="v-to"><option value="any">a stranger's address</option><option value="save">your savings address</option></select></label>
+            <label class="check"><input type="checkbox" id="v-keep" checked> Keep the change under the jar's rules</label>
+            <button class="btn sm" id="v-send" type="button">Try this spend</button>
+          </div>
+          <div class="verdict" id="v-verdict" aria-live="polite">Pick a spend.</div>
+          <button class="chip" id="v-refill" type="button" style="margin-top:8px">Refill jar</button>
+        </div>
+      </div>
+      <p class="note">Covenants check the outgoing transaction itself: amounts, destinations, and whether the change keeps the same rules (KIP-17 covenants and KIP-20 covenant IDs).<a class="fn" href="#n5">5</a> Rules like these are possible today; this jar is a teaching example.</p>
+    </figure>
+  </div>
+  <div class="prose" style="margin-top:28px;max-width:80ch">
+    <h3 style="font-size:1.6rem;margin-bottom:8px">Tokens are the same trick</h3>
+    <p>A <b>token</b> (say, points for a game or a coin someone launches) can be built as a coin that carries a rulebook: "this coin also holds 25 of token X, and here's how it may move". On October 21, 2026 the shared rulebook for that, <b>KCC-20</b>, became final.<a class="fn" href="#n7">7</a> It's an agreement between builders about formats, not a change to Kaspa itself, and it needed no further network upgrade. Final doesn't mean safe: anyone can launch a token, and most are junk.</p>
+  </div>
+</section>
+
+<!-- 06 -->
+<section class="mv" id="scale" aria-labelledby="h6">
+  <div class="mv-head"><div><p class="mv-no">No. 06</p><h2 id="h6">The money supply plays a scale</h2></div><p class="marking">chromatic, descending, very slowly</p></div>
+  <div class="prose" style="max-width:80ch">
+    <p>New coins are how miners get paid. Kaspa's schedule is written in its code as a table,<a class="fn" href="#n8">8</a> and it is weirdly musical. The first step paid out <b>440 KAS a second</b>. 440 is concert A, the note orchestras tune to. Every month the payout drops by one <b>semitone</b>, the gap between neighbouring piano keys. Twelve semitones make an octave, so the payout halves every year.</p>
+    <p id="scale-now">Right now it's <b class="num" id="s-now">…</b> KAS a second, which as a pitch is <b id="s-note">…</b>. That's below what most speakers can play. The next key down arrives <b id="s-next">…</b>.</p>
+  </div>
+  <figure class="panel" style="margin:20px 0 0">
+    <div class="panel-bar"><span>The emission keyboard · one key = one month</span><span class="tag" id="s-tag">from the node's own table</span></div>
+    <div class="keys-wrap" tabindex="0" role="group" aria-label="Emission keyboard, scrolls sideways"><canvas id="keys-cv" height="230" aria-label="Piano keys from 440 down to zero; the current month is highlighted."></canvas></div>
+    <div class="panel-ctl"><div class="row"><button class="btn sm" id="s-play" type="button">▶ Play the schedule so far</button><span class="note" style="border:0;padding:0" id="s-hover">Tap any key to hear it and see its month.</span></div></div>
+    <dl class="stats">
+      <div><dt>Coins out so far</dt><dd class="num" id="s-circ">…</dd></div>
+      <div><dt>The most there will ever be</dt><dd class="num">28,704,035,605</dd></div>
+      <div><dt>Share already out</dt><dd class="num teal" id="s-pct">…</dd></div>
+    </dl>
+    <p class="note">Notes are played several octaves up so you can hear them. Reward is per second; at ten blocks a second each block gets a tenth. The table has 426 monthly steps, then zero.</p>
+  </figure>
+</section>
+
+<!-- 07 -->
+<section class="mv" id="overheard" aria-labelledby="h7">
+  <div class="mv-head"><div><p class="mv-no">No. 07</p><h2 id="h7">Overheard on X</h2></div><p class="marking" id="feed-upd">translated into human</p></div>
+  <p class="prose" style="max-width:80ch">What people building Kaspa posted recently, with a plain-English line under each. The translations are ours; tap through to read the original. We skip price talk and token shilling. There's plenty of that elsewhere.</p>
+  <div class="feed" id="feed"><p>Loading posts…</p></div>
+</section>
+
+<!-- 08 -->
+<section class="mv" id="real" aria-labelledby="h8">
+  <div class="mv-head"><div><p class="mv-no">No. 08</p><h2 id="h8">Real, testing, or just talk?</h2></div><p class="marking">checked October 27, 2026</p></div>
+  <p class="prose" style="max-width:80ch">Crypto loves to blur "we shipped it" into "someone tweeted a diagram". Here's where things actually stand, with a receipt for each.</p>
+  <div class="filter" role="group" aria-label="Filter"><button class="chip" aria-pressed="true" data-f="all" type="button">Everything</button><button class="chip" aria-pressed="false" data-f="live" type="button">Live</button><button class="chip" aria-pressed="false" data-f="test" type="button">Testing</button><button class="chip" aria-pressed="false" data-f="page" type="button">On paper</button><button class="chip" aria-pressed="false" data-f="comp" type="button">Research</button></div>
+  <div class="board" id="board"></div>
+</section>
+
+<!-- 09 -->
+<section class="mv" id="doubts" aria-labelledby="h9">
+  <div class="mv-head"><div><p class="mv-no">No. 09</p><h2 id="h9">Reasons to be skeptical</h2></div><p class="marking">a fan site that only cheers is useless</p></div>
+  <ul class="risks">
+    <li><b>Speed costs something</b><p>Ten blocks a second means more data for every computer that checks the network. Push too far and only big operators can afford to check.</p><p class="settle">Watch for: lots of independent people running nodes.</p></li>
+    <li><b>Who pays miners later?</b><p>The new-coin payout halves every year. Eventually fees have to cover security, and today they're tiny.</p><p class="settle">Watch for: real fee income growing over years.</p></li>
+    <li><b>Electricity is the bill</b><p>Proof of work buys security with power and chips. Faster blocks don't make that bill smaller.</p><p class="settle">Nothing settles this. It's the design.</p></li>
+    <li><b>Mining is concentrated</b><p>Few companies make the special mining chips, and mining pools cluster.</p><p class="settle">Watch for: production spread across many hands over time.</p></li>
+    <li><b>Roadmaps aren't products</b><p>The next big consensus upgrade (DAGKnight), "verifiable programs", and native finance apps are separate projects on separate timelines. A demo of one proves nothing about the others.</p><p class="settle">Watch for: main-network releases people use twice.</p></li>
+    <li><b>Cool tech, real users?</b><p>Cheap, fast payments are what apps need to exist. They aren't proof anyone wants those apps.</p><p class="settle">Watch for: people coming back because it's better than an ordinary website.</p></li>
+  </ul>
+</section>
+
+<section class="notes" id="notes" aria-labelledby="hn">
+  <h2 id="hn" style="font-size:1.4rem;margin:56px 0 12px">Receipts</h2>
+  <ol>
+    <li id="n1">GHOSTDAG / PHANTOM paper, Sompolinsky, Wyborski, Zohar. <a href="https://eprint.iacr.org/2018/104">eprint.iacr.org/2018/104</a></li>
+    <li id="n2">Crescendo upgrade to 10 blocks/second, activation DAA score 110,165,000, projected May 5, 2025. <a href="https://github.com/kaspanet/rusty-kaspa/releases/tag/v1.0.0">rusty-kaspa v1.0.0 release</a> · <a href="https://github.com/kaspanet/kips/blob/master/kip-0014.md">KIP-14</a></li>
+    <li id="n3">k = 124 at 10 BPS, up to 16 parents per block, 5-second network delay bound. <a href="https://github.com/kaspanet/rusty-kaspa/blob/master/consensus/core/src/config/bps.rs">bps.rs</a> · <a href="https://github.com/kaspanet/rusty-kaspa/blob/master/consensus/core/src/config/constants.rs">constants.rs</a></li>
+    <li id="n4">Finality duration 43,200 seconds (12 hours). <a href="https://github.com/kaspanet/rusty-kaspa/blob/master/consensus/core/src/config/constants.rs">constants.rs</a></li>
+    <li id="n5">Toccata activated on mainnet at DAA score 474,165,565 (about June 30, 2026). <a href="https://github.com/kaspanet/rusty-kaspa/releases/tag/v2.0.0">rusty-kaspa v2.0.0</a> · <a href="https://github.com/kaspanet/kips/blob/master/kip-0017.md">KIP-17 covenants</a> · <a href="https://github.com/kaspanet/kips/blob/master/kip-0020.md">KIP-20 covenant IDs</a> · <a href="https://github.com/kaspanet/kips/blob/master/kip-0016.md">KIP-16 ZK verification</a></li>
+    <li id="n6">SilverScript v1.0.0, September 9, 2026. <a href="https://github.com/kaspanet/silverscript/releases">kaspanet/silverscript releases</a></li>
+    <li id="n7">KCC-20 Fungible Token Covenant Specification, Final; KCCs "do not propose changes to Kaspa consensus". <a href="https://github.com/kaspanet/kccs/blob/main/kcc-0020.md">kcc-0020.md</a> · <a href="https://github.com/kaspanet/kccs">KCC README</a></li>
+    <li id="n8">Subsidy table: 426 monthly steps starting at 44,000,000,000 sompi (440 KAS) per second, each 2<sup>−1/12</sup> of the last; SECONDS_PER_MONTH = 2,629,800. <a href="https://github.com/kaspanet/rusty-kaspa/blob/master/consensus/src/processes/coinbase.rs">coinbase.rs</a></li>
+    <li id="n9">Bitcoin whitepaper, section 11, "Calculations". <a href="https://bitcoin.org/bitcoin.pdf">bitcoin.org/bitcoin.pdf</a></li>
+    <li id="n10">Live numbers: blue score, hashrate, block reward, coin supply, next reward step. <a href="https://api.kaspa.org/docs">api.kaspa.org</a> (public Kaspa REST API). Real block details link to <a href="https://explorer.kaspa.org">explorer.kaspa.org</a>.</li>
+    <li id="n11">DAGKnight paper, <a href="https://eprint.iacr.org/2022/1494">eprint.iacr.org/2022/1494</a>; status Proposed, <a href="https://github.com/kaspanet/kips/blob/master/kip-0002.md">KIP-2</a>.</li>
+    <li id="n12">Rusty Kaspa v2.1.0, September 22, 2026. <a href="https://github.com/kaspanet/rusty-kaspa/releases">rusty-kaspa releases</a></li>
+  </ol>
+</section>
+</div>
+</main>
+
+<div class="wrap">
+<footer>
+  <p class="fine">An independent explainer. <b>Not an official Kaspa site</b>, not affiliated with any Kaspa team, and not investment advice: there are no prices here on purpose. Live numbers come from the public api.kaspa.org; if it's unreachable the page says so and draws a simulated rhythm instead. X posts belong to their authors; the plain-English lines are ours. Spotted a mistake? That's a bug. Keys: <span class="kbd">/</span> menu, <span class="kbd">1</span>–<span class="kbd">9</span> jump, <span class="kbd">s</span> sound.</p>
+</footer>
+</div>
+
+<div class="conductor" role="region" aria-label="Live network bar">
+  <span><span class="beat" id="beat" aria-hidden="true"></span><span class="lbl">live</span></span>
+  <span><span class="lbl">♩=</span><b id="c-tempo">…</b></span>
+  <span class="opt"><span class="lbl">blocks since you arrived</span><b id="c-since">0</b></span>
+  <span class="opt"><span class="lbl">next coin step</span><b id="c-next">…</b></span>
+  <span class="grow"></span>
+  <button type="button" id="c-share" class="opt">Share this moment</button>
+  <button type="button" id="c-sound" aria-pressed="false" aria-label="Sound">♪ sound</button>
+  <button type="button" id="c-menu" aria-label="Open menu">/ menu</button>
+</div>
+
+<div class="pal" id="pal" hidden role="dialog" aria-modal="true" aria-label="Jump to">
+  <div class="pal-box"><input id="pal-in" type="text" placeholder="Jump to… (try 'jar', 'cheat', 'scale')" aria-label="Search sections"><ul id="pal-list" role="listbox"></ul></div>
+</div>
+<div class="toast" id="toast" hidden role="status"></div>
+
+<script src="js/live.js" defer></script>
+<script src="js/score.js" defer></script>
+<script src="js/demos.js" defer></script>
+<script src="js/play.js" defer></script>
+<script src="js/ui.js" defer></script>
+</body>
+</html>

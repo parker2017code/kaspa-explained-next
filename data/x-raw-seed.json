@@ -1,0 +1,86 @@
+[
+ {
+  "id": "2110998749463929081",
+  "handle": "michaelsuttonil",
+  "date": "2026-10-16T07:38:16.000Z",
+  "text": "@aKaspamaxi i believe we can get to a stable (and secure) testnet this year",
+  "url": "https://x.com/michaelsuttonil/status/2110998749463929081"
+ },
+ {
+  "id": "2113950984451817976",
+  "handle": "KasperoLabs",
+  "date": "2026-10-24T11:09:24.000Z",
+  "text": "Today I am taking a break from coding (finally), so instead I want to update on where I am at -\n\n* Kozmic bridge - The concept is solid and proven on mainnet, both directions. It is possible to use Groth16/zk to prove Kaspa to Ethereum using a level-30 superblock ladder with 100",
+  "url": "https://x.com/KasperoLabs/status/2113950984451817976"
+ },
+ {
+  "id": "2113601328975098237",
+  "handle": "KaspaDollar",
+  "date": "2026-10-23T12:00:00.000Z",
+  "text": "Today we are introducing KaspaDollar, an initiative led by core developer @asaefstroem to build the first decentralized stablecoin on the $KAS network.\n\nThe developments around @kccforum and the Toccata hardfork have considerably widened what Kaspa is capable of. Capability",
+  "url": "https://x.com/KaspaDollar/status/2113601328975098237"
+ },
+ {
+  "id": "2112159453373980836",
+  "handle": "OriNewman",
+  "date": "2026-10-19T12:30:30.000Z",
+  "text": "Published KIP 22 to help Kaspa users better protect their funds from future quantum attackers by keeping public keys hidden until spending\n\nhttps://t.co/SOslUfDwKB",
+  "url": "https://x.com/OriNewman/status/2112159453373980836"
+ },
+ {
+  "id": "2114771542944932100",
+  "handle": "gokugalax",
+  "date": "2026-10-26T17:30:01.000Z",
+  "text": "our first independent kcc-20 count, counted on our own kaspa node at 12.00 utc on 26 oct\n\n240 kcc-20 tokens with holders\n2,646 holder outputs across 857 addresses\n4,560 transfers since 22 oct 05.53 utc\n\ntickers repeat, so our table lists every token by its covenant id https://t.co/BXyTWbLodZ",
+  "url": "https://x.com/gokugalax/status/2114771542944932100"
+ },
+ {
+  "id": "2112660896136994874",
+  "handle": "WellerOlaf",
+  "date": "2026-10-20T21:43:03.000Z",
+  "text": "Kaspa Privacy Initiative — Another Exciting Step! 💚🚀\n\nJust yesterday, we demonstrated private KAS payments on Kaspa TN10.\n\nNow we've tested something equally important: what happens if the original operator disappears?\n\nAnd it worked! 🎉\n\n✅ Original application controller https://t.co/UDSXu21QPT",
+  "url": "https://x.com/WellerOlaf/status/2112660896136994874"
+ },
+ {
+  "id": "2112516625186574491",
+  "handle": "asaefstroem",
+  "date": "2026-10-20T12:09:46.000Z",
+  "text": "PR #31 (KCC-20 Last Call advancement) was merged on October 7, 2026 at 20:38:09 UTC. 14 days from that is October 21. \n\nKCC-20 is final on October 21. https://t.co/JvElDBqTCu",
+  "url": "https://x.com/asaefstroem/status/2112516625186574491"
+ },
+ {
+  "id": "2114467720683233347",
+  "handle": "kaspadotnews",
+  "date": "2026-10-25T21:22:44.000Z",
+  "text": "Argent compiler refactor merged.\n\nkaspa-hashes 2.1.1 out, fixes the Windows build.\n\ncovenant_id index review, devs on paging and database limits.\n\nhttps://t.co/yFe1xu7Ver",
+  "url": "https://x.com/kaspadotnews/status/2114467720683233347"
+ },
+ {
+  "id": "2113336626277446032",
+  "handle": "michaelsuttonil",
+  "date": "2026-10-22T18:28:10.000Z",
+  "text": "@Radical_Ed_Bad @manyfest_ @grok yup. on eth it’s called WETH--an ERC-20 wrapper for ETH. the difference is that all the backing ETH is held under one contract address, while individual WETH balances are tracked in the contract’s storage.\n\non kaspa, each UTXO simply holds the actual KAS together with the KAS20",
+  "url": "https://x.com/michaelsuttonil/status/2113336626277446032"
+ },
+ {
+  "id": "2112920461176655927",
+  "handle": "manyfest_",
+  "date": "2026-10-21T14:54:28.000Z",
+  "text": "4 months ago Toccata enabled native L1 programmability.\n Last month, SilverScript brought a high-level language for covenants. \nToday KCC-20 finalization gives the ecosystem a shared convention for defining, deploying, interacting with, and composing fungible token assets.\n\nThere https://t.co/89hBEgvK1d",
+  "url": "https://x.com/manyfest_/status/2112920461176655927"
+ },
+ {
+  "id": "2111077647413375038",
+  "handle": "supertypo_kas",
+  "date": "2026-10-16T12:51:47.000Z",
+  "text": "@IzioDev @KASPAglobal @KasperoLabs tl;dr: It should be better than 'hdd' as-is due to the larger write cache, higher buffer mem and much lower compact freq. It syncs in about 6h on a 5400rpm (cmr) hdd, and is able to maintain steady state under current mainnet conditions. \n\nAt full network load it will be unable",
+  "url": "https://x.com/supertypo_kas/status/2111077647413375038"
+ },
+ {
+  "id": "2113329374220910995",
+  "handle": "IzioDev",
+  "date": "2026-10-22T17:59:21.000Z",
+  "text": "Kas the coin can also be 'tokenized' as a kcc-20.\n\nthe need may not be very clear to everyone, but basically: my L1 app may want to uniformly manage kcc-20 and Kas the coin, without extra 'custom code'.\n\n@manyfest_ details one of the direct use-case.\n\ni have been convinced that https://t.co/akc78A8EAD",
+  "url": "https://x.com/IzioDev/status/2113329374220910995"
+ }
+]
