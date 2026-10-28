@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-27T22:03:13Z",
+ "updated": "2026-10-28T10:03:48Z",
  "note": "Curated public posts. Plain-English lines are this site's summaries, not the authors' words.",
  "items": [
   {
@@ -23,6 +23,16 @@
    "caveat": null
   },
   {
+   "id": "2113995257524416730",
+   "handle": "kaspadotnews",
+   "date": "2026-10-24T14:05:20.000Z",
+   "url": "https://x.com/kaspadotnews/status/2113995257524416730",
+   "text": "Kaspa hashrate averaged 368 PH/s over the last week. That's the highest since early July and about 10% higher than September.",
+   "plain": "The computers securing Kaspa did more work last week than at any point since early July, about 10% more than in September.",
+   "tag": "community count",
+   "caveat": null
+  },
+  {
    "id": "2113950984451817976",
    "handle": "KasperoLabs",
    "date": "2026-10-24T11:09:24.000Z",
@@ -31,6 +41,36 @@
    "plain": "A solo builder got Kaspa and Ethereum to check each other's work with maths instead of a middleman, in both directions, on the real network. It's parked until the Ethereum side gets an outside review.",
    "tag": "test, unaudited",
    "caveat": "Ran on mainnet as a small test. Not a product. Not audited."
+  },
+  {
+   "id": "2113938931263684903",
+   "handle": "kaspadotnews",
+   "date": "2026-10-24T10:21:30.000Z",
+   "url": "https://x.com/kaspadotnews/status/2113938931263684903",
+   "text": "KAS itself isn't a KCC-20 token. So every app built for KCC-20 tokens needs extra custom code just to handle plain KAS. \n\nWhy should builders have to do that?\n\nManyfest @manyfest_ has proposed a fix called KAS20. The idea is simple. You lock KAS and get the same amount of KAS20.",
+   "plain": "A builder suggests a simple wrapper so plain KAS can be used in token apps the same way as other tokens: lock KAS, get an equal amount of a token version back.",
+   "tag": "proposed",
+   "caveat": "This is a proposal, not something live yet."
+  },
+  {
+   "id": "2113906515782279416",
+   "handle": "gokugalax",
+   "date": "2026-10-24T08:12:42.000Z",
+   "url": "https://x.com/gokugalax/status/2113906515782279416",
+   "text": "the next kaspa reward cut lands in 11 days. bitcoin waits about 540 days for its next one, and kaspa cuts 17 more times before that date. daily emission drops from 1.78 million to 1.68 million KAS, the block reward from 2.0602 to 1.9445.",
+   "plain": "Kaspa's block reward shrinks a little every month, and the next small cut is due in about 11 days.",
+   "tag": "explainer",
+   "caveat": null
+  },
+  {
+   "id": "2113635302497804609",
+   "handle": "gokugalax",
+   "date": "2026-10-23T14:15:00.000Z",
+   "url": "https://x.com/gokugalax/status/2113635302497804609",
+   "text": "15,111 outputs on kaspa carry a covenant ID, holding 1.25 million KAS. counted from our own node on 20 oct, 11.32 utc. the weekly kaspa numbers land in our newsletter,",
+   "plain": "One community node counted about 15,000 coin bundles on Kaspa already using the new covenant rules, holding 1.25 million KAS.",
+   "tag": "community count",
+   "caveat": "Counted by one community account on its own node, not an official figure."
   },
   {
    "id": "2113601328975098237",
