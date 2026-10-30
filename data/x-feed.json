@@ -1,7 +1,17 @@
 {
- "updated": "2026-10-28T10:03:48Z",
+ "updated": "2026-10-30T10:05:11Z",
  "note": "Curated public posts. Plain-English lines are this site's summaries, not the authors' words.",
  "items": [
+  {
+   "id": "2115900996316725748",
+   "handle": "KasperoLabs",
+   "date": "2026-10-29T20:18:03.000Z",
+   "url": "https://x.com/KasperoLabs/status/2115900996316725748",
+   "text": "I made kaspa-redteam, a tool for builders: drop a .sil, it attacks every spend path it can reach with known exploits and reports what Kaspa consensus let through.\n\nFree to use, files aren’t stored.",
+   "plain": "A builder made a free checker for Kaspa smart-contract scripts: upload one and it tries known tricks to break it, then tells you which ones the network would have let through.",
+   "tag": "test, unaudited",
+   "caveat": "Community tool; it has not had an outside review."
+  },
   {
    "id": "2114771542944932100",
    "handle": "gokugalax",
@@ -151,16 +161,6 @@
    "plain": "A full Kaspa node, the thing that checks every block, synced in about 6 hours on an old-style spinning hard drive. Ten blocks a second on hardware from a junk drawer, at today's traffic.",
    "tag": "dev news",
    "caveat": "At today's network load. Heavier load needs faster disks."
-  },
-  {
-   "id": "2110998749463929081",
-   "handle": "michaelsuttonil",
-   "date": "2026-10-16T07:38:16.000Z",
-   "url": "https://x.com/michaelsuttonil/status/2110998749463929081",
-   "text": "i believe we can get to a stable (and secure) testnet this year",
-   "plain": "Asked whether the big consensus upgrade (DAGKnight) arrives in 2026, a lead developer said he thinks a stable test network is possible this year. Test network. Not the real one.",
-   "tag": "testnet target",
-   "caveat": "A hope for a test network. No date for the main network."
   }
  ]
 }
