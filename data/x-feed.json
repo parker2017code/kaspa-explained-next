@@ -1,7 +1,37 @@
 {
- "updated": "2026-10-30T10:05:11Z",
+ "updated": "2026-11-01T10:03:15Z",
  "note": "Curated public posts. Plain-English lines are this site's summaries, not the authors' words.",
  "items": [
+  {
+   "id": "2116812978737594688",
+   "handle": "gokugalax",
+   "date": "2026-11-01T08:41:57.000Z",
+   "url": "https://x.com/gokugalax/status/2116812978737594688",
+   "text": "the next kaspa reward cut lands in 3 days. bitcoin waits about 532 days for its next one, and kaspa cuts 17 more times before that date. daily emission drops from 1.78 million to 1.68 million KAS, the block reward from 2.0602 to 1.9445.",
+   "plain": "Kaspa's next scheduled cut in new coins comes in about three days. It happens a little every month, so fewer new coins get made each day, while Bitcoin only cuts every four years or so.",
+   "tag": "explainer",
+   "caveat": "Figures come from a community account; not checked here."
+  },
+  {
+   "id": "2116481583993479584",
+   "handle": "kaspadotnews",
+   "date": "2026-10-31T10:45:06.000Z",
+   "url": "https://x.com/kaspadotnews/status/2116481583993479584",
+   "text": "Kaspa nodes could soon find every coin belonging to a KCC-20 token without relying on external indexers.\n\nMaxim Biryukov is building it, but D-Stacks spotted a problem where one simple request could trigger millions of database lookups.\n\nAfter some debate, they added a work limit",
+   "plain": "Developers are working on letting a Kaspa node look up who holds a given token by itself, without an outside service. They added a limit so one big request can't overload the node.",
+   "tag": "dev news",
+   "caveat": "Still being built; not live yet."
+  },
+  {
+   "id": "2116101290774126759",
+   "handle": "WellerOlaf",
+   "date": "2026-10-30T09:33:57.000Z",
+   "url": "https://x.com/WellerOlaf/status/2116101290774126759",
+   "text": "Quick KPI update\n\nI'm currently busy opening a waffle bar in The Hague, so development of the Kaspa Privacy Initiative will be taking a back seat for a while.\n\nI'll still be working on things here and there whenever I find the time, but without a fixed schedule.\n\nI'll keep an eye",
+   "plain": "The developer behind the Kaspa Privacy Initiative is slowing down for a while to open a waffle bar, and will keep working on it when time allows.",
+   "tag": "dev news",
+   "caveat": null
+  },
   {
    "id": "2115900996316725748",
    "handle": "KasperoLabs",
@@ -131,36 +161,6 @@
    "plain": "Private payments on Kaspa's test network, and a bonus trick: the payment could still be recovered after the people running the system walked away.",
    "tag": "testnet",
    "caveat": "Test network only. Experimental and not audited."
-  },
-  {
-   "id": "2112516625186574491",
-   "handle": "asaefstroem",
-   "date": "2026-10-20T12:09:46.000Z",
-   "url": "https://x.com/asaefstroem/status/2112516625186574491",
-   "text": "PR #31 (KCC-20 Last Call advancement) was merged on October 7, 2026 at 20:38:09 UTC. 14 days from that is October 21. \n\nKCC-20 is final on October 21.",
-   "plain": "The paperwork math: the token standard entered its last-call period on Oct 7, waited 14 days, and became final on Oct 21.",
-   "tag": "milestone",
-   "caveat": null
-  },
-  {
-   "id": "2112159453373980836",
-   "handle": "OriNewman",
-   "date": "2026-10-19T12:30:30.000Z",
-   "url": "https://x.com/OriNewman/status/2112159453373980836",
-   "text": "Published KIP 22 to help Kaspa users better protect their funds from future quantum attackers by keeping public keys hidden until spending",
-   "plain": "A proposal to keep your wallet's public key hidden until you spend, so a future quantum computer has less to aim at. No network upgrade needed. Wallets would just opt in.",
-   "tag": "proposed",
-   "caveat": "A proposal. It is now an open draft, not a finished standard."
-  },
-  {
-   "id": "2111077647413375038",
-   "handle": "supertypo_kas",
-   "date": "2026-10-16T12:51:47.000Z",
-   "url": "https://x.com/supertypo_kas/status/2111077647413375038",
-   "text": "tl;dr: It should be better than 'hdd' as-is due to the larger write cache, higher buffer mem and much lower compact freq. It syncs in about 6h on a 5400rpm (cmr) hdd, and is able to maintain steady state under current mainnet conditions. \n\nAt full network load it will be unable",
-   "plain": "A full Kaspa node, the thing that checks every block, synced in about 6 hours on an old-style spinning hard drive. Ten blocks a second on hardware from a junk drawer, at today's traffic.",
-   "tag": "dev news",
-   "caveat": "At today's network load. Heavier load needs faster disks."
   }
  ]
 }
